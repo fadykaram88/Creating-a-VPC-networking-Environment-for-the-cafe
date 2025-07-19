@@ -4,6 +4,7 @@
 This project focuses on creating a secure VPC environment for a web app. It includes configuring a bastion host in a public subnet, launching an EC2 instance in a private subnet, setting up a NAT Gateway, and establishing a secure SSH passthrough between the two instances.
 
 ---
+![VPC Networking Environment Architecture](https://github.com/fadykaram88/Creating-a-VPC-networking-Environment-for-the-cafe/blob/main/module-7-challenge-lab-final-architecture.png?raw=true)
 
 ## Task 1: Creating a VPC Network for Secure Remote Access
 
