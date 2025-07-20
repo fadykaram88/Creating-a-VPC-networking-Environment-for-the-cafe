@@ -1,0 +1,32 @@
+Project 8 
+Creating a VPC Peering Connection between two VPCs 
+note : VPC Peering is a one to one networking connection between two VPCs that enables you to route the traffic between them privately . So every instance in the two VPCs can communicate with each other 
+other note : you can create two VPC by reading the steps of project 3 
+Task 1 : so Let's create VPC Peering 
+1 - Inside the console search about VPC then choose Peering connections in the left then choose Create Peering connection
+Name - optional : Lab-Peer
+VPC ID (Requester): Lab VPC
+VPC ID ( Accepter ) : Shared VPC 
+then Create Peering connection
+note : if you make a VPC peering connection you must wait for the acceptance of the other VPC owner  but in this project I am the owner of the Two VPCs so let's accept the request of making the peering the connection 
+2 - choose Actions then choose Accept request 
+Task 2 : configuring the route tables between the two VPCs 
+3 - in the left choose Route Tables then choose Lab Public Route Table for Lab VPC then open Routes section then choose Edit routes then choose Add route  
+Destination : 10.5.0.0/16
+Target : peering connection  then choose pcx-............... which contains lab peer then save changes 
+4 - get back to the Route tables and choose Shared-VPC Route Table then open routes tab then edit route then add route ( same steps ) 
+Destination : 10.0.0.0/16
+Target : Peering connection then choose the value which is Lab peer 
+then save the changes 
+Task 3 : Enabling VPC Flow logs to provide insight on the data moving across the network 
+I setup VPC Flow Logs to monitor the network traffic moving between networks 
+5 - on the left choose Your VPCs then choose Shared VPC then open Flow Logs section then choose Create Flow Log 
+Name - optional : SharedVPCLogs
+Maximum aggregation interval : 1 minute 
+Destination : send to CloudWatch logs 
+Destination log group : ShareVPCFlowLogs
+IAM Role : vpc-flow-logs-Role 
+Choose Create flow log 
+6 - In your VPCs , choose Shared VPC then open flow tags then open the link which existed under Destination name  to see the cloudwatch log group that was created 
+7 - I wish if this project is simple to understand 
+8 - good bye and see you soon in other project 
